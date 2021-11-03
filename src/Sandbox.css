@@ -1,0 +1,50 @@
+.sandbox{
+    height: 100vh;
+    background-color: #002a46;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-sandbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.controls-container{
+    background: beige;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.control-item{
+    display: flex;
+    gap: 3px;
+    margin: 1em;
+}
+
+.request-button{
+    margin-top: 1em;
+    padding: 5px;
+    background: #65e791;
+    border-radius: 10px;
+}
+
+.request-button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.request-button-disabled{
+    opacity: 0.5;
+}
+
+.request-button-disabled:hover{
+    cursor: default;
+    opacity: 0.5;
+}

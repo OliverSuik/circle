@@ -1,0 +1,17 @@
+.menu-item-container{
+    border: solid 2px white;
+    overflow: hidden;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #002a46;
+    font-size: 1.5em;
+    color: #3ca2e6;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+/*
+Hover style is defined in Menu.scss due to transformation overwrite issues.
+*/

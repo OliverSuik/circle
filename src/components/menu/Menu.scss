@@ -1,0 +1,170 @@
+:root {
+  --radius: 28vh; /* menu circle radius */
+  --w: 9em; /* menu item width */
+  --h: 2em; /* menu item height */
+}
+
+@media (orientation: portrait) {
+  :root {
+    --radius: 25vw;
+  }
+}
+
+.center-label{
+  font-size: 4em;
+  color: white;
+}
+
+.select-plugin{
+  font-size: 2em;
+  color: white;
+}
+
+.center-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.menu-main-container {
+  border-radius: 100%;
+  width: calc(2 * var(--radius));
+  height: calc(2 * var(--radius));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.inner-circle {
+  border-radius: 100%;
+  width: calc(1.75 * var(--radius));
+  height: calc(1.75 * var(--radius));
+  border: solid 2px #0a4783;
+  position: absolute;
+}
+.menu-items-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: solid 2px white;
+}
+
+.menu-items-container > .menu-item-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: calc(-.5 * var(--h)) calc(-.5 * var(--w)) calc(-.5 * var(--h)) calc(-.5 * var(--w));
+  width: var(--w);
+  height: var(--h);
+  --az: calc(var(--i) * 1turn / var(--m));
+  --azm: calc(-1 * var(--az));
+}
+
+@keyframes moveToCircleInsideOut {
+  0% {
+    transform: rotate(var(--az)) translate(0) rotate(var(--azm));
+  }
+  100% {
+    transform: rotate(var(--az)) translate(var(--radius)) rotate(var(--azm));
+  }
+}
+
+@keyframes moveToCircleDoubleRotate {
+  0% {
+    transform: rotate(0) translate(0) rotate(var(--azm));
+  }
+  100% {
+    transform: rotate(var(--az)) translate(var(--radius)) rotate(var(--azm));
+  }
+}
+
+@keyframes moveToCircleRotate {
+  0% {
+    transform: rotate(0) translate(0) rotate(0);
+  }
+  100% {
+    transform: rotate(var(--az)) translate(var(--radius)) rotate(var(--azm));
+  }
+}
+
+.moveToCircleInsideOut > .menu-item-container {
+  animation: var(--animation-duration) ease 0s 1 moveToCircleInsideOut;
+  animation-fill-mode: forwards;
+}
+
+.moveToCircleDoubleRotate > .menu-item-container {
+  animation: var(--animation-duration) ease 0s 1 moveToCircleDoubleRotate;
+  animation-fill-mode: forwards;
+}
+
+.moveToCircleRotate > .menu-item-container {
+  animation: var(--animation-duration) ease 0s 1 moveToCircleRotate;
+  animation-fill-mode: forwards;
+}
+
+.initiallyPositioned > .menu-item-container{
+  transform: rotate(var(--az)) translate(var(--radius)) rotate(var(--azm));
+}
+
+.menu-items-container > .menu-item-container:hover {
+  cursor: pointer;
+  background-color: #00568f;
+  color: white;
+  --az: calc(var(--i) * 1turn / var(--m));
+  --azm: calc(-1 * var(--az));
+  transform: rotate(var(--az)) translate(var(--radius)) rotate(var(--azm)) scale(1.1) !important;
+}
+
+
+.fade-in-menu {
+  animation: fadeIn linear var(--fade-duration);
+  -webkit-animation: fadeIn linear var(--fade-duration);
+  -moz-animation: fadeIn linear var(--fade-duration);
+  -o-animation: fadeIn linear var(--fade-duration);
+  -ms-animation: fadeIn linear var(--fade-duration);
+}
+
+.fade-in-menu-one-by-one > .menu-item-container{
+  opacity: 0;
+
+  animation: fadeIn linear var(--fade-duration);
+  -webkit-animation: fadeIn linear var(--fade-duration);
+  -moz-animation: fadeIn linear var(--fade-duration);
+  -o-animation: fadeIn linear var(--fade-duration);
+  -ms-animation: fadeIn linear var(--fade-duration);
+
+  animation-fill-mode: forwards;
+
+  animation-delay: var(--appear-delay);
+}
+
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
